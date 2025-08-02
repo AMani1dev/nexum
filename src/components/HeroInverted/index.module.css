@@ -1,0 +1,58 @@
+.hero-inv  {
+    --inv-h-rad : 15px ;
+    --body-background : var(--bg-body);
+
+    width: 96vw;
+
+    height: 94vh;
+    height: 94svh;
+
+    margin-top: 3vh;
+    margin-top: 3svh;
+
+    border-radius: var(--inv-h-rad);
+
+    isolation: isolate;
+}
+
+/* .hero-inv .hero-inv__content ,
+.hero-inv img  {
+    border-radius: inherit;
+} */
+
+.hero-inv .hero-inv__content ,
+.hero-inv video {
+    border-radius: inherit;
+}
+
+.logo__wrapper {
+    width: fit-content;
+    background-color: var(--body-background);
+
+    border-radius: 0 0 var(--inv-h-rad) var(--inv-h-rad);
+}
+
+
+.logo__wrapper::before ,
+.logo__wrapper::after {
+    content : "" ;
+    position: absolute;
+    top: 50%;
+    width: 15px;
+    aspect-ratio: 1;
+ 
+    background: radial-gradient( circle var(--inv-h-rad) at bottom var(--position) ,
+    transparent 100% , var(--body-background) )  bottom var(--position); 
+
+    
+}
+
+.logo__wrapper::before {
+    --position : left ; 
+    left: -15px;
+}
+
+.logo__wrapper::after {
+    --position : right; 
+    right: -15px;
+}

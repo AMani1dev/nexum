@@ -1,0 +1,95 @@
+.inverted__top-bottom {
+    --radius: 10px;
+    
+    --w: min(90vw, 800px);
+    --full-h: 100vh;
+    --h-calc: 10 / 16;
+    --center-y-calc: calc((var(--full-h) - (var(--w) * var(--h-calc))) / 2);
+  
+    width: min(95vw, 800px);
+    aspect-ratio: 16 / 10;
+  
+    /* margin-top: var(--center-y-calc); */
+    margin-block: 15vh;
+    background: url("../../../public/images/inverted/inverted.webp") center / cover no-repeat;
+}
+
+:where([class*="e__wrapper"]){
+    --radius-sm: 10px;
+    --round-size: 15px;
+      
+    /* body bg clr*/
+    /* background-color: var(--dark-clr__bg); */
+    background-color: white;
+}
+
+
+
+:where([class*="e__wrapper"])::before ,
+:where([class*="e__wrapper"])::after {
+    content: "";
+    position: absolute;
+    width: var(--round-size);
+    aspect-ratio: 1;
+}
+
+
+  .top-e__wrapper {
+    border-radius: 15px;
+  }
+  
+  .top-e__wrapper::before,
+  .top-e__wrapper::after {
+    top: 50%;
+  
+    /* background: radial-gradient(circle 15px at var(--_position),
+      transparent 95%, var(--dark-clr__bg)) var(--_position); */
+          background: radial-gradient(circle 15px at var(--_position),
+      transparent 95%, white) var(--_position);
+  }
+  
+  .top-e__wrapper::before {
+    --_position: bottom left;
+    left: calc(var(--round-size) * -1);
+  }
+  
+  .top-e__wrapper::after {
+    --_position: bottom right;
+    right: calc(var(--round-size) * -1);
+  }
+/* /////////////////////////////////////////////////////////////////////////////////////////// */
+  .bottom-e__wrapper {
+    @media(width < 300px){
+     & {
+       display: none;
+     }
+    }
+    border-top-left-radius: var(--radius-sm);
+  }
+  
+  .bottom-e__wrapper::before,
+  .bottom-e__wrapper::after {
+    /* background: radial-gradient(circle 15px at top left,
+      transparent 95%, var(--dark-clr__bg)) top left; */
+
+         background: radial-gradient(circle 15px at top left,
+      transparent 95%,white) top left;
+  }
+  
+  .bottom-e__wrapper::before {
+    left: calc(var(--round-size) * -1);
+    bottom: 0;
+  }
+  
+  .bottom-e__wrapper::after {
+    top: calc(var(--round-size) * -1);
+    right: 0;
+  }
+  
+
+
+  .child {
+    /* background-color: teal; */
+    background-color: var(--dark-clr__bg);
+    border-radius: var(--radius-sm);
+  }
