@@ -108,27 +108,27 @@ const cardsInfo = [
 ];
 
 // Lazy component using Intersection Observer
-const LazyComponent = ({ children }) => {
-  const ref = useRef(null);
-  const [isVisible, setIsVisible] = useState(false);
+// const LazyComponent = ({ children }) => {
+//   const ref = useRef(null);
+//   const [isVisible, setIsVisible] = useState(false);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.1 }
-    );
+//   useEffect(() => {
+//     const observer = new IntersectionObserver(
+//       ([entry]) => {
+//         if (entry.isIntersecting) {
+//           setIsVisible(true);
+//           observer.disconnect();
+//         }
+//       },
+//       { threshold: 0.1 }
+//     );
 
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, []);
+//     if (ref.current) observer.observe(ref.current);
+//     return () => observer.disconnect();
+//   }, []);
 
-  return <div ref={ref}>{isVisible ? children : null}</div>;
-};
+//   return <div ref={ref}>{isVisible ? children : null}</div>;
+// };
 
 
 const App = () => {
@@ -188,23 +188,23 @@ const App = () => {
             additionClasses=""
           />
 
-          <LazyComponent>
+          {/* <LazyComponent> */}
 
             <SlicedImage
               width="200px"
               aspectRatio="9 / 16"
               src={`${BASE}images/slicedImage/sliced.webp`}
             />
-          </LazyComponent>
+          {/* </LazyComponent> */}
 
 
-          <LazyComponent>
+          {/* <LazyComponent> */}
             <HzScroll
               fluidText="here we are again !"
               cardsInfo={cardsInfo}
               additionalClasses=""
             />
-          </LazyComponent>
+          {/* </LazyComponent> */}
         </>
       )}
     </>
